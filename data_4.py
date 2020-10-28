@@ -14,7 +14,7 @@ import numpy as np
 import torch
 import torch.utils.data as data
 
-import kaldi_io
+import kaldiio
 from utils import IGNORE_ID, pad_list
 
 
@@ -109,7 +109,7 @@ def load_inputs_and_targets(batch):
     # for b in batch:
     #     print(b[1]['input'][0]['feat'])
     xs = []
-    xs_ = [kaldi_io.read_mat(b[1]['input'][0]['feat']) for b in batch]
+    xs_ = [kaldiio.load_mat(b[1]['input'][0]['feat']) for b in batch]
     ys = [b[1]['output'][0]['tokenid'].split() for b in batch]
 
     for x in xs_:
